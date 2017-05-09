@@ -2,7 +2,7 @@ m = int(input())
 graph = {}
 for j in range(m):
     v1, v2 = input().split()
-    graph[v1] = graph.get(v1, []) +[v2]
+    graph[v1] = graph.get(v1, []) + [v2]
 
 
 def bfs(graph, start, path):
@@ -19,7 +19,7 @@ def bfs(graph, start, path):
                 Q.append(neighbour)
                 used.add(vertex)
             else:
-                path[start] = path.get(start, []) +[neighbour]
+                path[start] = path.get(start, []) + [neighbour]
                 return path
     path[start] = []
     return path
