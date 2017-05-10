@@ -2,17 +2,22 @@
 s = input()
 
 def max_polindromes(s):
-  i = 0
-  R = 0
-  L = -1
-  len_polindromes = [1] + [0]*(len(s)-1)
-  for i in range (1, len(s)):
-    if i > R:
-      k = 0
-    else:
-      k = min(len_polidromes[L+R-i], R-i)
-    while i + k < len(s) and i - k > 0 and s[i-k] == s[i+k]:
-      k += 1
-    len_polindromes[i] = 2*k + 1
-    if i + k > R:
-      
+    R = 0
+    C = 0
+    len_polindromes = [1] + [0]*(len(s) - 1)
+    for i in range(1, len(s)):
+        if i >= R:
+            k = 0
+        else:
+            k = min(len_polindromes[2 * C - i], R - i)
+        while i + k < len(s) and i - k >= 0 and s[i - k] == s[i + k]:
+            k += 1
+        else:
+            len_polindromes[i] += 2*k - 1
+        if i + k > R:
+            R = i + k
+            L = i - k
+    return len_polindromes
+
+print(*max_polindromes(s))
+
